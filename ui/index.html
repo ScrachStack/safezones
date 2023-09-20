@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Safezones</title>
+    <script src="https://kit.fontawesome.com/9f69eba8e4.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">  
+    <style>
+ @font-face {
+    font-family: 'Chinese Rocks';
+    src: url('chinese-rocks.ttf') format('truetype'); /* Replace 'path/to/' with the actual path */
+}
+* {
+    font-family: 'Chinese Rocks', sans-serif; /* Use 'Chinese Rocks' font, and fallback to a generic sans-serif font if it's not available */
+}
+
+        body {
+            color: #e8c599; /* A sandy color for a Wild West feel */
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative; 
+     
+        }
+
+        #displayTextContainer {
+            position: absolute;
+            top: 10px;
+            right: 40%;
+            display: flex;
+            flex-direction: column;
+            width: 90%;
+            max-width: 300px;
+            padding: 20px;
+            background-image: url('https://cdn.discordapp.com/attachments/1153089040619409590/1153933331528949790/WT0.png'); /* Replace with your Wild West background image */
+            background-size: cover;
+            background-repeat: no-repeat;
+            border-radius: 5px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .info-box {
+            flex: 1;
+            background-color: rgba(139, 69, 19, 0.7); /* Brownish color for boxes */
+            border-radius: 6px;
+            padding: 15px;
+            margin: 0 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
+        }
+
+        .discord-link {
+            color: #8B4513; /* Dark brown for the Discord link */
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .discord-link:hover {
+            color: #A0522D; /* Slightly lighter brown on hover */
+        }
+
+        .info-box p {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 5px 0;
+        }
+
+        @keyframes fadeInOut {
+            0% {
+                opacity: 0;
+            }
+
+            100% {
+                opacity: 1;
+            }
+        }
+
+        #displayTextContainer.fade-in {
+            animation: fadeInOut 0.5s ease-in;
+        }
+
+        #displayTextContainer.fade-out {
+            animation: fadeInOut 0.5s ease-out;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="displayTextContainer">
+        <div class="info-container">
+            <div class="info-box">
+                <p style="font-size: 18px; font-weight: bold;"><i class="fa-solid fa-cowboy"></i> Wild West RZ</p>
+            </div>
+            <div class="info-box">
+                <p style="color: #008000;"><i class="fa-solid fa-shield-alt"></i> You are in a green zone</p>
+            </div>
+        </div>
+        <div class="text" style="font-size: 15px; margin-left: 15px;" id="discordText">Saloon: <a class="discord-link" href="https://discord.gg/wildwestrz" target="_blank"><i class="fab fa-discord"></i> discord.gg/wildwestrz</a></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('message', function (event) {
+                var data = event.data;
+                if (data && data.type === 'displayText') {
+                    if (data.display) {
+                        document.getElementById('displayTextContainer').style.display = 'block';
+                        displayTextContainer.classList.remove('fade-out');
+                        displayTextContainer.classList.add('fade-in');
+                        document.body.style.overflow = 'hidden'; // Prevent player from scrolling while UI is open
+                    } else {
+                        document.getElementById('displayTextContainer').style.display = 'none';
+                        document.body.style.overflow = 'auto'; // Restore scrolling when UI is closed
+                        displayTextContainer.classList.remove('fade-in'); 
+                        displayTextContainer.classList.add('fade-out'); 
+                        setTimeout(function () {
+                            displayTextContainer.style.display = 'none';
+                            document.body.style.overflow = 'auto'; // Restore scrolling when UI is closed
+                        }, 500);
+                    }
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            window.addEventListener('message', function (event) {
+                var data = event.data;
+                if (data && data.type === 'displayText') {
+                    if (data.display) {
+                        document.querySelector('.info-box p').innerHTML = '<i class="fa-solid fa-cowboy"></i> ' + data.text;
+                        document.querySelector('#discordText').innerHTML = 'Saloon: <a class="discord-link" href="https://discord.gg/cfxdev" target="_blank"><i class="fab fa-discord"></i> ' + data.discordText + '</a>';
+                        
+                        document.getElementById('displayTextContainer').style.display = 'block';
+                        displayTextContainer.classList.remove('fade-out');
+                        displayTextContainer.classList.add('fade-in');
+                        document.body.style.overflow = 'hidden';
+                    } else {
+                        document.getElementById('displayTextContainer').style.display = 'none';
+                        document.body.style.overflow = 'auto';
+                        displayTextContainer.classList.remove('fade-in');
+                        displayTextContainer.classList.add('fade-out');
+                        setTimeout(function () {
+                            displayTextContainer.style.display = 'none';
+                            document.body.style.overflow = 'auto';
+                        }, 500);
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
