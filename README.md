@@ -14,7 +14,7 @@ Easily create and edit Green Zones in RedM with this standalone resource. You ca
 
 ## Support and Community
 
-Join our community on [Discord](https://discord.gg/cfxdev) for any questions, support, or discussions related to this resource. We're here to help!
+[![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/Uwg95JfwYT) 
 
 ## Follow for Updates
 
