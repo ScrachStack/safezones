@@ -4,6 +4,7 @@
 
 Easily create and edit Green Zones in RedM with this standalone resource. You can define multiple zones by editing the `main.lua` file.
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/T6T01APGOO)
 
 ## Usage
 
