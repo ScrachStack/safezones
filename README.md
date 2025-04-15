@@ -15,7 +15,7 @@ Easily create and edit Green Zones in RedM with this standalone resource. You ca
 
 ## Support and Community
 
-[![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/Uwg95JfwYT) 
+[![Discord](https://img.shields.io/badge/Discord-Support-5865F2?style=flat&logo=discord&logoColor=white)](https://discord.gg/tgrU8wgeHx) 
 
 ## Follow for Updates
 
